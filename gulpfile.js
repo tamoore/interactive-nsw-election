@@ -32,7 +32,7 @@ gulp.task('deploy-master', function() {
 gulp.task('deploy', ['build'], function() {
 	return gulp.src(['./'])
 		.on('end', shell.task([
-			'aws s3 sync ./build s3://gdn-cdn/next-gen/au/2015/mar/interactive-nsw-election/ --profile interactive --acl public-read --cache-control="max-age=0, no-cache"'
+			'aws s3 sync ./build s3://gdn-cdn/next-gen/au/2015/mar/new/interactive-nsw-election/ --profile interactive --acl public-read --cache-control="max-age=0, no-cache"'
 		]));
 });
 
