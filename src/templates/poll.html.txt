@@ -1,0 +1,20 @@
+<h2 id="pollSubHeading"></h2>
+<div class="poll">
+    <div class="left">
+        <div class="party labour" id="labour" data-seats="">Labour</div>
+        <div class="party greens" id="greens" data-seats="">Greens</div>
+        <div class="party independents" id="independents" data-seats="">Independents</div>
+    </div>
+    <div class="right">
+        <div class="party coalition" id="liberal" data-seats="">Coalition</div>
+        <div class="party nationals" id="nationals" data-seats="">Nationals</div>
+    </div>
+</div>
+<ul class="col-right mb-60 ul__party t-ul__party" style="list-style-type: none">
+    <li style="list-style: none"><span class="rect bgc-lab"></span>Lab</li>
+    <li><span class="rect bgc-grn"></span>Grn</li>
+    <li><span class="rect bgc-nat"></span>Nat</li>
+    <li><span class="rect bgc-lib"></span>Lib</li>
+    <li><span class="rect bgc-ind"></span>Ind</li>
+    <li><span class="rect bgc-und"></span>Undeclared</li>
+</ul>

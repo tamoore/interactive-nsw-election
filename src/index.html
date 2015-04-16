@@ -15,6 +15,7 @@
 		<script charset="utf-8" src="../jspm_packages/system.js"></script>
 		<script src="../config.js"></script>
 		<script>
+			System.map['text'] = 'text';
 			System.import("lib/index");
 		</script>
 		<!-- endbuild -->
@@ -23,6 +24,9 @@
 		<script src="http://interactive.guim.co.uk/libs/iframe-messenger/iframeMessenger.js" type="text/javascript"></script>
 		<script charset="utf-8">
 			iframeMessenger.enableAutoResize();
+		</script>
+		<script>
+			__boot__(document.querySelector('.interactive'));
 		</script>
 	</body>
 </html>

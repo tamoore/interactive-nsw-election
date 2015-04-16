@@ -9,5 +9,168 @@
 @import '../../bower_components/guss-colours/_colours';
 @import '../../bower_components/guss-webfonts/_webfonts';
 
-@include guss-webfonts();
+
+$guss-webfonts-base-url: '//interactive.guim.co.uk/fonts/guss-webfonts';
+$guss-webfonts-path: '/';
 @include guss-typography-defaults;
+@include guss-webfonts();
+
+$labour: #d61d00;
+$liberals: rgba(0,111,185,.9);
+$nationals: darken(rgba(0,111,185,.9), 10%);
+$greens: #298422;
+$indie: #333;
+$height: 6rem;
+
+@mixin numbers($position-left, $position-right){
+  &:before {
+    content: attr(data-seats);
+    position: absolute;
+    height: 1.2rem;
+    z-index: 1;
+    text-indent: 0;
+    text-align: center;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    right: auto;
+    margin-top: 5px;
+  }
+}
+.poll {
+  margin-top: 2rem;
+  height: $height;
+  width: 100%;
+  background: #dfdfdf;
+  position: relative;
+  font-family: "Guardian Agate Sans 1 Web","Agate Sans",sans-serif;
+  font-size: 12px;
+  &:after {
+    position: absolute;
+    width: 1px;
+    height: $height+2rem;
+    content: "";
+    left: calc(50% - 1px);
+    background: rgba(0,0,0,.5);
+    top: -1rem;
+    z-index: 2;
+  }
+  &:before {
+    position: absolute;
+    width: 3rem;
+    height: 2rem;
+    content: "Majority";
+    left: calc(50% - 1px);
+    top: -2rem;
+    z-index: 2;
+  }
+  .left {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .right {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .party {
+   height: 4rem;
+   text-indent: -999em;  position: relative;
+   @include transition-property(width);
+    @include transition-duration(1s);
+    @include transition-timing-function(ease);
+
+  }
+  .labour {
+    background: $labour;
+    height: $height;
+    float: left;
+
+    color: $labour;
+    @include numbers(-19px, auto);
+  }
+  .greens {
+
+    background: $greens;
+    height: $height;
+    float: left;
+    color: $greens;
+    @include numbers(-19px, auto);
+  }
+  .coalition {
+    height: $height;
+
+    background: $liberals;
+    float: right;
+    color: $liberals;
+    @include numbers(auto, -19px);
+  }
+  .nationals {
+    height: $height;
+
+    background: $nationals;
+    float: right;
+    color: $nationals;
+    @include numbers(auto, -19px);
+  }
+  .independents {
+    height: $height;
+    background: $indie;
+    float: left;
+
+
+    @include numbers(auto, -19px);
+  }
+
+}
+
+.ul__party {
+  list-style: none;
+  margin-top: 2rem;
+  padding-left: 0;
+  float: right;
+  line-height: 1.5;
+  color: #767676;
+  font-family: "Guardian Text Sans Web","Agate Sans", sans-serif;
+  font-size: 14px;
+  li {
+    padding-right: 15px;
+    float: left;
+    .rect {
+      width: 10px;
+      height: 18px;
+      margin-right: 5px;
+      border-radius: 2px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}
+.bgc-lab {
+  background-color: $labour;
+}
+.bgc-grn {
+  background-color: $greens;
+}
+.bgc-nat {
+  background-color: $nationals;
+}
+.bgc-lib {
+  background-color: $liberals;
+}
+.bgc-und {
+  background-color: #dfdfdf;
+}
+.bgc-ind {
+  background-color: $indie;
+}
+#pollSubHeading {
+  @include fs-headline(5);
+  color: #767676;
+  padding-bottom: 1rem;
+
+}

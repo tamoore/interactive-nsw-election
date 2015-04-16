@@ -4,7 +4,6 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	bump = require('gulp-bump'),
 	pkg = require('./package.json'),
-	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
 	htmlreplace = require('gulp-html-replace');
 
@@ -40,22 +39,23 @@ gulp.task('deploy', ['build'], function() {
 gulp.task('build', ['styles'], function() {
 	gulp.src('./')
 		.pipe(shell([
-			'jspm bundle-sfx --minify src/lib/index',
+			'jspm bundle-sfx src/lib/index',
 			'cp -f ./build.js ./build/',
 			'cp -rf ./src/css ./build && cp -rf ./src/images ./build/images',
-			'cp -f jspm_packages/traceur-runtime.js ./build',
-			'cp -f ./src/boot.js ./build'
+			'cp -f ./src/boot.js ./build',
+			'cp -f ./jspm_packages/babel-polyfill.js ./build'
 		]));
 
 	gulp.src('./src/index.html')
 		.pipe(htmlreplace({
 			src: 'src/index.html',
 			'js': {
-				src: ['traceur-runtime.js', 'build.js']
+				src: ['babel-polyfill.js', 'build.js']
 			}
 		}))
 		.pipe(gulp.dest('build/'));
 });
+
 
 gulp.task('watch', function() {
 	gulp.watch('src/scss/**/*.scss', ['styles']);
