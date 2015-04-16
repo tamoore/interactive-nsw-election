@@ -11,10 +11,10 @@ var loadJSON = function(){
 	jquery.getJSON(`http://interactive.guim.co.uk/spreadsheetdata/${key}.json`, (data) => {
 		handleResults(data);
 	}).done(()=>{
-		timeout = setTimeout(loadJSON, 5000);
+		//timeout = setTimeout(loadJSON, 5000);
 	}).
 		fail(()=>{
-		timeout = setTimeout(loadJSON, 5000);
+		//timeout = setTimeout(loadJSON, 5000);
 	});
 }
 
