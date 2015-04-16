@@ -54,7 +54,7 @@ var load = new Promise((resolved, error)=>{
 	jquery.getJSON(`http://interactive.guim.co.uk/spreadsheetdata/${key}.json`, (data) => {
 	 	resolved(data);
 	});
-}).then(handleResults).then(loadJSON);
+}).then(handleResults);
 
 window.__boot__ = function(el){
 	new Ractive(new Main(el));
